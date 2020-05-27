@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "970492958726",
+    "firebase_url": "https://finalproject-68668.firebaseio.com",
+    "project_id": "finalproject-68668",
+    "storage_bucket": "finalproject-68668.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970492958726:android:b880141e011695abb18b87",
+        "android_client_info": {
+          "package_name": "com.railway.railwayrouteoptimisation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "970492958726-f4e4h6upc6lvq202f667gh4e6g5q7nog.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUIHoIQhgHbKFIyE8OAary706pI29kukc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "970492958726-f4e4h6upc6lvq202f667gh4e6g5q7nog.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
