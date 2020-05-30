@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:project/signup.dart';
 import 'package:project/login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:async';
 void main() => runApp(new MyApp());
+
+  String email='';
+  String password='';
+
+  final formKey2= GlobalKey<FormState>();
+
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -40,6 +49,9 @@ class LoginPageState extends State<LoginPage>
     _railwaylogoanimator.forward();
   }
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -62,6 +74,7 @@ class LoginPageState extends State<LoginPage>
                 width: 120.0,
               ),
               new Form(
+                key: formKey2,
                 child: Theme(
                   data: new ThemeData(
                     brightness: Brightness.dark,
@@ -72,6 +85,7 @@ class LoginPageState extends State<LoginPage>
                     (crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                       new TextFormField(
+                        onSaved: (input) => email = input,
                         decoration: new InputDecoration(
                             labelText: 'Enter the username or email',
                             labelStyle: TextStyle(color: Colors.white.withOpacity(1.0),fontFamily: 'Baloo',fontSize: 20.0),
@@ -81,6 +95,7 @@ class LoginPageState extends State<LoginPage>
                         keyboardType: TextInputType.text,
                       ),
                        new TextFormField(
+                        onSaved: (input) => password = input,
                         decoration: new InputDecoration(
                             labelText: 'Enter the Password',
                             labelStyle: TextStyle(color: Colors.white.withOpacity(1.0),fontFamily: 'Baloo',fontSize: 20.0,),
@@ -100,9 +115,7 @@ class LoginPageState extends State<LoginPage>
                 height: 40.0,
                 child: Container(
                   child: GestureDetector(
-                    onTap: () { 
-                      Navigator.of(context).pushNamed('/login');
-                    },
+                    onTap:signIn,
                   child:Container(
                   decoration: BoxDecoration(
                     border: Border.all(
@@ -163,4 +176,19 @@ class LoginPageState extends State<LoginPage>
       ),
     );
   }
+  Future<void> signIn() async {
+  formKey2.currentState.save();
+  try{
+  FirebaseUser user = (await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password)).user;
+  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Login(),));
+  //Navigator.push(context, route)
+  }catch(e){
+    print(e.message);
+  }
+  }
+
+
 }
+
+
+

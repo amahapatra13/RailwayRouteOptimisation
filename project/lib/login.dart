@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:project/main.dart';
 
 
-
-void main() => runApp(new MyApp());
+void main() => runApp(new Login());
 String _source,_destination;
 var answer;
  final formKey = GlobalKey<FormState>();
  final formKey1= GlobalKey<FormState>();
-class MyApp extends StatelessWidget {
+class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: new LoginPage1(),
     );
   }
