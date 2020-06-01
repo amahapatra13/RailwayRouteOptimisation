@@ -210,7 +210,7 @@ int _dijkstra(){
                             [99999,99999,99999,99999,99999,99999,99999,99999,99999,99999,99999,99999,99999,0]];
     
   var v;
-    for(var i=0;i<6;i++)
+    for(var i=0;i<14;i++)
    {
      if (cityNames[i]==start)
       {
@@ -219,11 +219,11 @@ int _dijkstra(){
       }
    }
 
-  dijkstra(6, v, matrix, dist);
+  dijkstra(14, v, matrix, dist);
 
   v=v+1;
   var q;
-  for(var i=0;i<6;i++)
+  for(var i=0;i<14;i++)
    {
      if (cityNames[i]==end)
       {
